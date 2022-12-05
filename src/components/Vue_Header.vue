@@ -1,31 +1,18 @@
 <template>
-  <div id="app">
-    <Header />
-    <Snow 
-      :active='true'
-      :zIndex='2'
-      :wind='1' 
-      :swing='3' 
-      :speed='l' 
-      color="#FFFFFF"/>
-  </div>
+  <header>
+    <div class="header-sections">
+      <img class="sections-logo sections" alt="logo sleeps at home" src="../assets/LOGO.png" />
+      <img class="sections-news sections"  alt="logo sleeps at home" src="../assets/NEWS.png" />  
+      <img class="sections-ads sections" alt="logo sleeps at home" src="../assets/ADS.png" /> 
+      <img class="sections-ads sections" alt="logo sleeps at home" src="../assets/MY_ADS.png" /> 
+      <img class="sections-ads sections" alt="logo sleeps at home" src="../assets/PROFILE.png" /> 
+    </div>
+  </header>
 </template>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <script>
-import Header from './components/Vue_Header.vue';
-import Snow from '../node_modules/vue-niege/src/Snow.vue';
-
 export default {
-  name: 'app',
-  data() {
-    return{
-      
-    }
-  },
-  components:{
-    Header,
-    Snow,
-  }
 }
 </script>
 
@@ -48,35 +35,29 @@ img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
-.warning{
-  text-align: center;
-  font-size: 20px;
-  margin:20px 0 0 0;
-  color: #DC143C;
+header{
+  background-color: $color4;
 }
 
-.choice{
-  display: flex;
-  margin:50px auto 0 auto;
-  max-width: 1300px;
-
-  &-choice{
-    width: 100%;
-    color: $color2;
-    font-size: 18px;
-    text-align: center;
+.header{
+  &-sections{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  &-art{
-    width: 500px;
-    margin: 0px 50px 0px 30px;
-    border: 3px solid $color3;
-    border-radius: 20%;
+  &-sections:last-child{
+    margin:0 80px 0 0;
   }
 }
 
-body{
-  background-color: $color1;
+.sections {
+  width: 100px;
+
+  &-logo {
+    width: 250px;
+    margin:5px 0 5px 10px;
+  }
 }
 
 </style>
