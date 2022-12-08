@@ -4,16 +4,16 @@
       <a href="home.html">
         <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
       </a>
-      <a href="news.html">
+      <a href="/news">
         <div class="sections-news sections">Новости</div>
       </a>
-      <a href="ads.html">
+      <a href="/ads">
         <div class="sections-ads sections">Доска объявлений</div>
       </a> 
-      <a href="myads.html">
+      <a href="/myads">
         <div class="sections-myads sections">Мои объявления</div>
       </a>
-      <a href="profile.html">
+      <a href="/profile">
         <div class="sections-profile sections">Профиль</div>
       </a>
       <div class="changeThemes">
@@ -124,7 +124,7 @@ header{
 
 .sections {
   width: 115px;
-  // font-family: $font1;
+  font-family: 'Rubik', sans-serif;
   font-size: 20px;
   text-align: center;
 

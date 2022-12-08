@@ -1,9 +1,5 @@
 <template>
     <div id="comp" :class="currentTheme">
-        <div class="block">
-          <img class="icy_bush" src="../../assets/ICY_BUSH.jpg" alt="">
-          <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore maiores voluptatibus similique, cupiditate commodi quos alias consequuntur necessitatibus corrupti. Provident laborum fuga fugit, eveniet perspiciatis assumenda quos nesciunt quae rem!</div>
-        </div>
       
     </div>
   </template>
@@ -57,7 +53,7 @@
   }
   
   .text{
-    font-family: $font1;
+    font-family: 'Rubik', sans-serif;
     text-align: center;
     font-size: 18px;
   }
