@@ -95,6 +95,7 @@ body {
 .head > h2 {
   margin: 10px;
   text-align: center;
+  font-size: 18px;
 }
 
 .head > h4 {

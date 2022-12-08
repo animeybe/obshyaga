@@ -1,36 +1,40 @@
 <template>
   <header id="main_header" :class="userTheme">
-    <div class="header-sections">
-      <a href="home.html">
-        <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
-      </a>
-      <a href="/news">
-        <div class="sections-news sections">Новости</div>
-      </a>
-      <a href="/ads">
-        <div class="sections-ads sections">Доска объявлений</div>
-      </a> 
-      <a href="/myads">
-        <div class="sections-myads sections">Мои объявления</div>
-      </a>
-      <a href="/profile">
-        <div class="sections-profile sections">Профиль</div>
-      </a>
-      <div class="changeThemes">
-        <input
-        @change="toggleTheme"
-        id="checkbox"
-        type="checkbox"
-        class="switch-checkbox"
-        />
-        <label for="checkbox" class="switch-label">
-          <span><img src="../assets/MOON.png" alt="" width="26"></span>
-          <span><img src="../assets/SUN.png" alt="" width="26"></span>
-          <div
-            class="switch-toggle"
-            :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-          ></div>
-        </label>
+    <div class="wrapper">
+      <div class="header-sections">
+        <a href="/home">
+          <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
+        </a>
+        <div class="sections-group">
+          <a href="/news">
+            <div class="sections-news sections">Новости</div>
+          </a>
+          <a href="/ads">
+            <div class="sections-ads sections">Доска объявлений</div>
+          </a> 
+          <a href="/myads">
+            <div class="sections-myads sections">Мои объявления</div>
+          </a>
+          <a href="/profile">
+            <div class="sections-profile sections">Профиль</div>
+          </a>
+        </div>
+        <div class="changeThemes">
+          <input
+          @change="toggleTheme"
+          id="checkbox"
+          type="checkbox"
+          class="switch-checkbox"
+          />
+          <label for="checkbox" class="switch-label">
+            <span><img src="../assets/MOON.png" alt="" width="26"></span>
+            <span><img src="../assets/SUN.png" alt="" width="26"></span>
+            <div
+              class="switch-toggle"
+              :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
+            ></div>
+          </label>
+        </div>
       </div>
     </div>
   </header>
@@ -108,25 +112,26 @@ img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
-header{
-  box-shadow: 1px 1px 15px $color2;
-}
-
-.header{
-
-  &-sections{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px 5px 210px;
-  }
+.header-sections{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 120px 0 100px;
 }
 
 .sections {
-  width: 115px;
+  width: 130px;
   font-family: 'Rubik', sans-serif;
   font-size: 20px;
   text-align: center;
+
+  &-group{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 140px 0 90px;
+  }
 
   &:hover {
     text-shadow: 1px 1px 3px $color2;

@@ -27,6 +27,7 @@
 #main_header {
     background-color: var(--background-color-secondary);
     color: var(--text-primary-color);
+    box-shadow: 1px 1px 20px var(--shadow-color);
     a {
         color: var(--text-secondary-color);
     }
