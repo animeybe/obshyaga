@@ -13,6 +13,7 @@
         "core-js": "^3.8.3",
         "vue": "^3.2.13",
         "vue-niege": "^0.1.1",
+        "vue-router": "^4.1.6",
         "vuex": "^4.0.2"
     },
     "devDependencies": {

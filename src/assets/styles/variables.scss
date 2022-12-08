@@ -3,15 +3,22 @@ $color2: #D5D6D2; //#D5D6D2 - Холодный серый
 $color3: #FFFFFF; //#FFFFFF - Белый
 $color4: #3A5199; //#3A5199 - Кобальт
 
-[theme-color="theme-dark"] {
-    --bg-color: #121416;
-    --font-color: #f4f4f4;
+:root {
+    --background-color-primary: #f4f4f4;
+    --background-color-secondary: #3A5199;
+    --background-accent-color: #cacaca;
+    --text-primary-color: #2d2d30;
+    --text-secondary-color: #f4f4f4;
+    --text-accent-color: #f4f4f4;
+    --shadow-color: #121416;
+    --element-size: 86px;
 }
-[theme-color="theme-light"] {
-    --bg-color: #f4f4f4;
-    --font-color: #121416;
+:root.dark-theme {
+    --background-color-primary: #121416;
+    --background-color-secondary: #2d2d30;
+    --background-accent-color: #3f3f3f;
+    --text-primary-color: #f4f4f4;
+    --text-secondary-color: #f4f4f4;
+    --text-accent-color: #ebebeb;
+    --shadow-color: #ebebeb;
 }
-
-//<Шрифт по умолчанию>
-$font1: "Myriad Pro";
-//<Шрифт по умолчанию>

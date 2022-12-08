@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /*Обнуление*/
 * {padding: 0;margin: 0;border: 0;}
 *,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
@@ -167,8 +167,8 @@ header{
   position: absolute;
   background-color: var(--background-color-primary);
   border-radius: var(--element-size);
-  top: -1.5px;
-  left: -1px;
+  top: 0px;
+  left: 0px;
   height: 29px;
   width: 50px;
   transform: translateX(0);

@@ -9,11 +9,7 @@
       :speed='l' 
       color="#FFFFFF"/>
 
-      
-
-    <!-- <div class="container">
       <router-view />
-    </div> -->
 
   </div>
 </template>
