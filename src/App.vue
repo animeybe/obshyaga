@@ -8,24 +8,30 @@
       :swing='3' 
       :speed='l' 
       color="#FFFFFF"/>
+
+      
+
+    <!-- <div class="container">
+      <router-view />
+    </div> -->
+
   </div>
 </template>
 
 <script>
-import Header from './components/Vue_Header.vue';
+import Header from './components/MainHeader.vue';
 import Snow from '../node_modules/vue-niege/src/Snow.vue';
 
 export default {
   name: 'app',
   data() {
     return{
-      
     }
   },
   components:{
     Header,
     Snow,
-  }
+  },
 }
 </script>
 
@@ -47,36 +53,5 @@ ul li{list-style: none;}
 img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
-
-.warning{
-  text-align: center;
-  font-size: 20px;
-  margin:20px 0 0 0;
-  color: #DC143C;
-}
-
-.choice{
-  display: flex;
-  margin:50px auto 0 auto;
-  max-width: 1300px;
-
-  &-choice{
-    width: 100%;
-    color: $color2;
-    font-size: 18px;
-    text-align: center;
-  }
-
-  &-art{
-    width: 500px;
-    margin: 0px 50px 0px 30px;
-    border: 3px solid $color3;
-    border-radius: 20%;
-  }
-}
-
-body{
-  background-color: $color1;
-}
 
 </style>

@@ -1,1 +1,50 @@
-@import "variables.scss"
+
+@import "variables.scss";//<Подключаем шрифты>
+
+//     font-family: 'Myriad Pro';
+// @font-face {
+//         url('./fonts/Myriad_Pro/MyriadPro-Regular.woff2') format('woff2'),
+//     src: local('Myriad Pro Regular'),
+//         url('./fonts/Myriad_Pro/MyriadPro-Regular.ttf') format('truetype');
+//         url('./fonts/Myriad_Pro/MyriadPro-Regular.woff') format('woff'),
+//     font-style: normal;
+//     font-weight: 400;
+
+// }
+//<Подключаем шрифты>
+:root {
+    --background-color-primary: #f4f4f4;
+    --accent-color: #cacaca;
+    --background-color-secondary: #3A5199;
+    --element-size: 86px;
+    --shadow-color: #121416;
+    --text-primary-color: #f4f4f4;
+    --text-accent-color: #121416;
+}
+:root.dark-theme {
+    --background-color-primary: #121416;
+    --background-color-secondary: #2d2d30;
+    --text-primary-color: #f4f4f4;
+    --shadow-color: #ebebeb;
+    --accent-color: #3f3f3f;
+}
+
+.app-background {
+    background-color: var(--background-color-primary);
+    color: var(--text-primary-color);
+}
+
+#main_header {
+    background-color: var(--background-color-secondary);
+    color: var(--text-primary-color);
+    box-shadow: 1px 1px 15px var(--shadow-color);
+    a {
+        color: var(--text-primary-color);
+    }
+    .switch-toggle {
+        box-shadow: 1px 1px 5px var(--shadow-color);
+    }
+    .switch-label {
+        box-shadow: 1px 1px 10px var(--shadow-color);
+    }
+}

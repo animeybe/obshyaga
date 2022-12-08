@@ -2,3 +2,16 @@ $color1: #2F2E33; //#2F2E33 - Сине-черный
 $color2: #D5D6D2; //#D5D6D2 - Холодный серый
 $color3: #FFFFFF; //#FFFFFF - Белый
 $color4: #3A5199; //#3A5199 - Кобальт
+
+[theme-color="theme-dark"] {
+    --bg-color: #121416;
+    --font-color: #f4f4f4;
+}
+[theme-color="theme-light"] {
+    --bg-color: #f4f4f4;
+    --font-color: #121416;
+}
+
+//<Шрифт по умолчанию>
+$font1: "Myriad Pro";
+//<Шрифт по умолчанию>
