@@ -8,11 +8,39 @@
           <h2 class="animation a1">Добро пожаловать!</h2>
           <h4 class="animation a2">Создайте свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <form class="form">
-          <input type="email" class="form-field animation a3" placeholder="Адрес электронной почты">
-          <input type="password" class="form-field animation a4" placeholder="Пароль">
+        <div v-if="error" class="alert alert-danger">{{error}}</div>
+        <form action="#" @submit.prevent="Register" class="form">
+          <input
+            id="name"
+            type="name"
+            name="name"
+            class="form-field animation a3"
+            placeholder="Ваше имя"
+            value
+            required
+            autofocus
+            v-model="name">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="form-field animation a4"
+            placeholder="Адрес электронной почты"
+            value
+            required
+            autofocus
+            v-model="email">
+          <input
+            id="password"
+            type="password"
+            class="form-field animation a5"
+            placeholder="Пароль"
+            value
+            required
+            autofocus
+            v-model="password">
           <button @click="$router.push('/login')" class="animation a6 link">Войти</button>
-          <button class="animation a7 button">Зарегистрироваться</button>
+          <button class="animation a6 button">Зарегистрироваться</button>
         </form>
       </div>
       
@@ -22,43 +50,67 @@
 
   </div>
 </template>
-  
-  <script>
-  
-  export default {
-    name: 'registerPage',
-    data() {
+
+<script>
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+
+export default {
+  name: 'registerPage',
+  data() {
       return{
+
       }
     },
-    components:{
-    },
-    methods: {
-    }
-  }
-  </script>
   
-  <style lang="scss" scoped>
-  /*Обнуление*/
-  * {padding: 0;margin: 0;border: 0;}
-  *,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
-  :focus,:active {outline: none;}
-  a:focus,a:active {outline: none;}
-  nav, footer, header, aside {display: block;}
-  html, body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
-  input,button,textarea {font-family: inherit;}
-  input::-ms-clear{display: none;}
-  button{cursor: pointer;}
-  button::-moz-focus-inner{padding: 0;border: 0;}
-  a, a:visited{text-decoration: none;}
-  a:hover{text-decoration: none;}
-  ul li{list-style: none;}
-  img {vertical-align: top;}
-  h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
-  /*----------------------------*/
-  
-  * { box-sizing: border-box; }
+  setup() {
+    const name = ref('')
+    const email = ref('')
+    const password = ref('')
+    const error = ref(null)
 
+    const store = useStore()
+    const router = useRouter()
+
+    const Register = async () => {
+      try {
+        await store.dispatch('Register', {
+          email: email.value,
+          password: password.value,
+          name: name.value
+        })
+        router.push('/login')
+      }
+      catch (err) {
+        error.value = err.message
+            }
+    }
+    return { Register, email, password, error }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+/*Обнуление*/
+* {padding: 0;margin: 0;border: 0;}
+*,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active {outline: none;}
+a:focus,a:active {outline: none;}
+nav, footer, header, aside {display: block;}
+html, body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea {font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+/*----------------------------*/
+
+* { box-sizing: border-box; }
 .container {
   display: flex;
   height: 100vh;
@@ -160,11 +212,11 @@
 }
 
 .a5 {
-  animation-delay: 2.2s;
+  animation-delay: 2.4s;
 }
 
 .a6 {
-  animation-delay: 2.2s;
+  animation-delay: 2.5s;
 }
 
 @keyframes move {

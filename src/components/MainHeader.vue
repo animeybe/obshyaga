@@ -6,10 +6,12 @@
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
-          <button @click="$router.push('/news')" class="sections-news sections">Новости</button>
-          <button @click="$router.push('/ads')" class="sections-ads sections">Доска объявлений</button>
-          <button @click="$router.push('/myads')" class="sections-myads sections">Мои объявления</button>
-          <button @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/news')" class="sections-news sections">Новости</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска объявлений</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои объявления</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
+          <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
+          <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
         </div>
         <div class="changeThemes">
           <input

@@ -8,9 +8,27 @@
           <h2 class="animation a1">С возвращением!</h2>
           <h4 class="animation a2">Войдите в свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <form @submit.prevent="SignIn" class="form">
-          <input type="email" class="form-field animation a3" placeholder="Адрес электронной почты">
-          <input type="password" class="form-field animation a4" placeholder="Пароль">
+        <div v-if="error" class="alert alert-danger">{{error}}</div>
+        <form @submit.prevent="Login" class="form">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="form-field animation a3"
+            placeholder="Адрес электронной почты"
+            value
+            required
+            autofocus
+            v-model="email">
+          <input
+            id="password"
+            type="password"
+            class="form-field animation a4"
+            placeholder="Пароль"
+            value
+            required
+            autofocus
+            v-model="password">
           <div class="links">
             <button class="animation a5">Забыли пароль</button>
             <button @click="$router.push('/register')" class="animation a5">Зарегистрироваться</button>
@@ -27,28 +45,35 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'loginPage',
-  data() {
-    return{
-    }
-  },
-  methods: {
-    signIn() {
-      this.$load(async() => {
-        const data = (await this.$api.auth.signIn({
-          email: this.form.email,
-          password: this.form.password
-        })).data
-        localStorage.setItem('user', JSON.stringify(data))
-        this.$store.dispatch('user/setUser', data)
-        this.$emit('close')
-      })
-    },
+  setup() {
+    const email = ref('')
+    const password = ref('')
+    const error = ref(null)
 
+    const store = useStore()
+    const router = useRouter()
+
+    const Login = async () => {
+      try {
+        await store.dispatch('logIn', {
+          email: email.value,
+          password: password.value
+        })
+        router.push('/')
+      }
+      catch (err) {
+        error.value = err.message
+      }
+    }
+    return { Login, email, password, error }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
