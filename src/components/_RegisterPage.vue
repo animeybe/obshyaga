@@ -11,8 +11,8 @@
         <form class="form">
           <input type="email" class="form-field animation a3" placeholder="Адрес электронной почты">
           <input type="password" class="form-field animation a4" placeholder="Пароль">
-          <p class="animation a6"><a href="/login">Войти</a></p>
-          <button class="animation a7">Зарегистрироваться</button>
+          <button @click="$router.push('/login')" class="animation a6 link">Войти</button>
+          <button class="animation a7 button">Зарегистрироваться</button>
         </form>
       </div>
       
@@ -38,7 +38,7 @@
   }
   </script>
   
-  <style lang="scss">
+  <style lang="scss" scoped>
   /*Обнуление*/
   * {padding: 0;margin: 0;border: 0;}
   *,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
@@ -58,11 +58,6 @@
   /*----------------------------*/
   
   * { box-sizing: border-box; }
-
-body {
-  font-family: 'Rubik', sans-serif;
-}
-
 
 .container {
   display: flex;
@@ -110,21 +105,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  &> p {
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-  max-width: 100%;
-  text-align: center;
-  margin: 15px 0 5px 0;
-
-  &> a {
-  max-width: 50%;
-  font-size: 14px;
-}
-}
-
-  &> button {
+  &> .button {
   padding: 12px 10px;
   border: 0;
   background: linear-gradient(to right, #de48b5 0%,#0097ff 100%); 
@@ -151,6 +132,10 @@ body {
 } 
 }
 
+.link{
+  margin:10px 0 0 0;
+}
+
 .animation {
   animation-name: move;
   animation-duration: .4s;
@@ -175,14 +160,11 @@ body {
 }
 
 .a5 {
-  animation-delay: 2.4s;
+  animation-delay: 2.2s;
 }
 
 .a6 {
-  animation-delay: 2.5s;
-}
-.a6 {
-  animation-delay: 2.6s;
+  animation-delay: 2.2s;
 }
 
 @keyframes move {

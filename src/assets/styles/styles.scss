@@ -19,8 +19,15 @@
 .app-background {
     background-color: var(--background-color-primary);
     color: var(--text-primary-color);
+
+    font-family: 'Rubik', sans-serif;   
     a {
         color: var(--text-primary-color);
+    }
+    button {
+        background-color: var(--background-color-primary);
+        color: var(--text-primary-color);
+        border-radius: 5px;
     }
 }
 
@@ -28,7 +35,13 @@
     background-color: var(--background-color-secondary);
     color: var(--text-primary-color);
     box-shadow: 1px 1px 20px var(--shadow-color);
+
+    font-family: 'Rubik', sans-serif;
     a {
+        color: var(--text-secondary-color);
+    }
+    button {
+        background-color: var(--background-color-secondary);
         color: var(--text-secondary-color);
     }
     .switch-toggle {

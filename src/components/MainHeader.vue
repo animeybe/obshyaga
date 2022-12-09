@@ -2,22 +2,14 @@
   <header id="main_header" :class="userTheme">
     <div class="wrapper">
       <div class="header-sections">
-        <a href="/home">
+        <button @click="$router.push('/home')">
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
-        </a>
+        </button>
         <div class="sections-group">
-          <a href="/news">
-            <div class="sections-news sections">Новости</div>
-          </a>
-          <a href="/ads">
-            <div class="sections-ads sections">Доска объявлений</div>
-          </a> 
-          <a href="/myads">
-            <div class="sections-myads sections">Мои объявления</div>
-          </a>
-          <a href="/profile">
-            <div class="sections-profile sections">Профиль</div>
-          </a>
+          <button @click="$router.push('/news')" class="sections-news sections">Новости</button>
+          <button @click="$router.push('/ads')" class="sections-ads sections">Доска объявлений</button>
+          <button @click="$router.push('/myads')" class="sections-myads sections">Мои объявления</button>
+          <button @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
         </div>
         <div class="changeThemes">
           <input
@@ -172,9 +164,9 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   position: absolute;
   background-color: var(--background-color-primary);
   border-radius: var(--element-size);
-  top: 0px;
+  top: 1px;
   left: 0px;
-  height: 29px;
+  height: 28px;
   width: 50px;
   transform: translateX(0);
   transition: transform 0.5s ease, background-color 0.5s ease;

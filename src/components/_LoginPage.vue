@@ -8,14 +8,14 @@
           <h2 class="animation a1">С возвращением!</h2>
           <h4 class="animation a2">Войдите в свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <form class="form">
+        <form @submit.prevent="SignIn" class="form">
           <input type="email" class="form-field animation a3" placeholder="Адрес электронной почты">
           <input type="password" class="form-field animation a4" placeholder="Пароль">
           <div class="links">
-            <p class="animation a5"><a href="#">Забыли пароль</a></p>
-            <p class="animation a6"><a href="/register">Зарегистрироваться</a></p>
+            <button class="animation a5">Забыли пароль</button>
+            <button @click="$router.push('/register')" class="animation a5">Зарегистрироваться</button>
           </div>
-          <button class="animation a7">Войти</button>
+          <button class="animation a6 button">Войти</button>
         </form>
       </div>
       
@@ -33,6 +33,20 @@ export default {
   data() {
     return{
     }
+  },
+  methods: {
+    signIn() {
+      this.$load(async() => {
+        const data = (await this.$api.auth.signIn({
+          email: this.form.email,
+          password: this.form.password
+        })).data
+        localStorage.setItem('user', JSON.stringify(data))
+        this.$store.dispatch('user/setUser', data)
+        this.$emit('close')
+      })
+    },
+
   }
 }
 </script>
@@ -57,11 +71,6 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
 * { box-sizing: border-box; }
-
-body {
-  font-family: 'Rubik', sans-serif;
-}
-
 
 .container {
   display: flex;
@@ -109,21 +118,8 @@ body {
   display: flex;
   flex-direction: column;
 
-  &> p {
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-  max-width: 100%;
-  text-align: center;
-  margin: 15px 0 5px 0;
 
-  &> a {
-  max-width: 50%;
-  font-size: 14px;
-}
-}
-
-  &> button {
+  &> .button {
   padding: 12px 10px;
   border: 0;
   background: linear-gradient(to right, #de48b5 0%,#0097ff 100%); 
@@ -181,14 +177,11 @@ body {
 }
 
 .a5 {
-  animation-delay: 2.4s;
+  animation-delay: 2.2s;
 }
 
 .a6 {
-  animation-delay: 2.5s;
-}
-.a6 {
-  animation-delay: 2.6s;
+  animation-delay: 2.2s;
 }
 
 @keyframes move {
