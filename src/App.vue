@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Header from './components/MainHeader.vue';
+import Header from '../src/components/MainHeader.vue';
 import Snow from '../node_modules/vue-niege/src/Snow.vue';
 
 export default {

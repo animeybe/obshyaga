@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import loginPage from '../components/_LoginPage.vue'
-import registerPage from '../components/_RegisterPage.vue'
-import Home from '../components/HomePage.vue'
-import Ads from '../components/AdsPage.vue'
-import myAds from '../components/MyAdsPage.vue'
-import Profile from '../components/ProfilePage.vue'
-import News from '../components/NewsPage.vue'
+import loginPage from '../pages/_LoginPage.vue'
+import registerPage from '../pages/_RegisterPage.vue'
+import Home from '../pages/HomePage.vue'
+import Ads from '../pages/AdsPage.vue'
+import myAds from '../pages/MyAdsPage.vue'
+import Profile from '../pages/ProfilePage.vue'
+import News from '../pages/NewsPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
