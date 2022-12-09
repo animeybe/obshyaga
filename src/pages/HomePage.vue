@@ -1,13 +1,13 @@
 <template>
-    <div id="comp">
-        
+    <div id="homePage">
+      
     </div>
   </template>
   
   <script>
   
   export default {
-    name: 'app',
+    name: 'homePage',
     data() {
       return{
 
@@ -35,5 +35,5 @@
   h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   /*----------------------------*/
   
-  
+
   </style>

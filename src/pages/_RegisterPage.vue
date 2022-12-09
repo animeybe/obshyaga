@@ -60,7 +60,6 @@ export default {
   name: 'registerPage',
   data() {
       return{
-
       }
     },
   

@@ -1,44 +1,21 @@
 <template>
-  <div id="app">
-    <Snow 
-      :active='true'
-      :zIndex='2'
-      :wind='1' 
-      :swing='3' 
-      :speed='l' 
-      color="#FFFFFF"/>
-      
-    <Header />
-    
-    <router-view class="content" />
-
-    <v-footer>
-      <Footer />
-    </v-footer>
-
-  </div>
+  <footer id="main_footer" :class="userTheme">
+      <div class="wrapper">
+      </div>
+  </footer>
 </template>
 
 <script>
-import Header from '../src/components/MainHeader.vue';
-import Footer from '../src/components/MainFooter.vue';
-import Snow from '../node_modules/vue-niege/src/Snow.vue';
-
 export default {
-  name: 'app',
-  data() {
-    return{
-    }
-  },
-  components:{
-    Header,
-    Snow,
-    Footer,
+  name:'main_footer',
+    data() {
+    return {
+    };
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /*Обнуление*/
 * {padding: 0;margin: 0;border: 0;}
 *,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
@@ -56,5 +33,7 @@ ul li{list-style: none;}
 img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
+
+
 
 </style>
