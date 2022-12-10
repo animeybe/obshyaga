@@ -5,16 +5,14 @@
       :zIndex='2'
       :wind='1' 
       :swing='3' 
-      :speed='l' 
+      :speed='h' 
       color="#FFFFFF"/>
       
     <Header />
     
     <router-view class="content" />
 
-    <v-footer>
-      <Footer />
-    </v-footer>
+    <Footer />
 
   </div>
 </template>

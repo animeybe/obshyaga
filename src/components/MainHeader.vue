@@ -1,14 +1,14 @@
 <template>
   <header id="main_header" :class="userTheme">
-    <div class="wrapper">
+    <div class="header">
       <div class="header-sections">
         <button @click="$router.push('/home')">
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
           <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/news')" class="sections-news sections">Новости</button>
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска объявлений</button>
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои объявления</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
+          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
           <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
           <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
           <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
@@ -35,12 +35,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name:'main_header',
     data() {
     return {
       userTheme: "light-theme",
     };
+  },
+  computed: {
+    ...mapGetters([
+      'getLoggedIn',
+    ])
   },
   mounted() {
     const initUserTheme = this.getTheme() || this.getMediaPreference();
@@ -106,16 +113,17 @@ img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
-.header-sections{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 120px 0 100px;
+.header{
+  &-sections{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px 0 100px;
+  }
 }
 
 .sections {
-  width: 130px;
-  font-family: 'Rubik', sans-serif;
+  min-width: 155px;
   font-size: 20px;
   text-align: center;
 

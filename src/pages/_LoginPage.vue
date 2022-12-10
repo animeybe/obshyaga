@@ -1,5 +1,5 @@
 <template>
-  <div id="loginPage">
+  <div id="loginPage" :class="userTheme">
 
     <div class="container">
 

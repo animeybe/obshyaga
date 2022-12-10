@@ -1,4 +1,5 @@
-import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { signOut } from "firebase/auth";
 
 const auth = getAuth();
 
@@ -28,10 +29,10 @@ export default {
                 throw new Error('login failed')
             }
         },
-        async logOut({commit}){
-            await signOut(auth)
-            commit('SET_USER', null)
-        },
+        // async logOut({commit}){
+        //     await signOut(auth)
+        //     commit('SET_USER', null)
+        // },
     
         async fetchUser({commit} ,user) {
           commit("SET_LOGGED_IN", user !== null);

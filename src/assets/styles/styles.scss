@@ -2,30 +2,15 @@
 //<Подключаем шрифты>
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
-    
-// @font-face {
-//     font-family: 'Myriad Pro';
-//     src:url('./fonts/Myriad_Pro/MyriadPro-Regular.woff2') format('woff2');
-//     src: local('Myriad Pro Regular'),
-//         url('./fonts/Myriad_Pro/MyriadPro-Regular.ttf') format('truetype'),
-//         url('./fonts/Myriad_Pro/MyriadPro-Regular.woff') format('woff');
-//     font-style: normal;
-//     font-weight: 400;
-
-// }
 //<Подключаем шрифты>
-
-.wrapper {
-    max-width: 750px;
-    margin: 0 auto;
-}
 
 .app-background {
     background-color: var(--background-color-primary);
     color: var(--text-primary-color);
 
-    font-family: 'Rubik', sans-serif;   
+    font-family: 'Rubik', sans-serif;
     a {
         color: var(--text-primary-color);
     }
@@ -38,7 +23,7 @@
         color: red;
     }
     .content {
-        min-height: calc(100vh - ($height-footer * 2));
+        min-height: calc(100vh - ($height-footer + $height-header));
     }
 }
 
@@ -49,7 +34,7 @@
     color: var(--text-primary-color);
     box-shadow: 1px 1px 20px var(--shadow-color);
 
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     a {
         color: var(--text-secondary-color);
     }
@@ -65,6 +50,7 @@
     }
 }
 #main_footer {
+    width: 100vw;
     height: $height-footer;
 
     background-color: var(--background-color-secondary);

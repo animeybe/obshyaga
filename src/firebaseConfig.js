@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth'
+import { getAuth, setPersistence, browserSessionPersistence } from 'firebase/auth'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBl8DXdoKoO2tGa39-vjR-YyAuN2li3q-0",
@@ -13,5 +13,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+async () => {
+  await setPersistence(auth, browserSessionPersistence);
+};
 
 export { auth }

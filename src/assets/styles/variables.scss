@@ -9,11 +9,12 @@ $height-footer: 90px;
 :root {
     --background-color-primary: #f4f4f4;
     --background-color-secondary: #3A5199;
-    --background-accent-color: #cacaca;
+    --background-accent-color: #2d2d30;
     --text-primary-color: #2d2d30;
     --text-secondary-color: #f4f4f4;
     --text-accent-color: #f4f4f4;
     --shadow-color: #121416;
+    --shadow-text-color: #ebebeb;
     --element-size: 86px;
 }
 :root.dark-theme {
@@ -24,4 +25,5 @@ $height-footer: 90px;
     --text-secondary-color: #f4f4f4;
     --text-accent-color: #ebebeb;
     --shadow-color: #ebebeb;
+    --shadow-text-color: #121416;
 }

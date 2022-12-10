@@ -1,5 +1,5 @@
 <template>
-    <div id="comp" :class="currentTheme">
+    <div id="comp" :class="userTheme">
   
     </div>
   </template>
