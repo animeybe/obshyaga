@@ -6,12 +6,13 @@
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/news')" class="sections-news sections">Новости</button>
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
-          <button v-if="$store.getters.getUser.loggedIn" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
-          <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
-          <button v-if="!$store.getters.getUser.loggedIn" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
+          <button v-if="isLoggedIn" @click="$router.push('/news')" class="sections-news sections">Новости</button>
+          <button v-if="isLoggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
+          <button v-if="isLoggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
+          <button v-if="isLoggedIn" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
+          <button v-if="isLoggedIn" @click="handleLogOut" class="sections-logout"><img src="../assets/LOGOUT_ICON.png" alt="выйти"></button>
+          <button v-if="!isLoggedIn" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
+          <button v-if="!isLoggedIn" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
         </div>
         <div class="changeThemes">
           <input
@@ -35,19 +36,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 export default {
   name:'main_header',
     data() {
     return {
       userTheme: "light-theme",
+      isLoggedIn: false,
     };
-  },
-  computed: {
-    ...mapGetters([
-      'getLoggedIn',
-    ])
   },
   mounted() {
     const initUserTheme = this.getTheme() || this.getMediaPreference();
@@ -90,8 +87,36 @@ export default {
       localStorage.setItem("theme", this.darkMode);
       htmlElement.setAttribute('theme', (this.darkMode ? 'darkMode' : ''));
     }
-  }
+  },
 }
+</script>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
+import { signOut } from 'firebase/auth'
+
+const isLoggedIn = ref(false);
+let auth;
+onMounted(() => {
+  auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    isLoggedIn.value = true;
+  } else {
+    isLoggedIn.value = false;
+    }
+  });
+})
+
+const router = useRouter()
+
+const handleLogOut = () => {
+  signOut(auth).then(() => {
+    router.push('/')
+  })
+};
+
 </script>
 
 <style lang="scss" scoped>
@@ -123,16 +148,15 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 }
 
 .sections {
-  min-width: 155px;
+  width: 155px;
   font-size: 20px;
   text-align: center;
 
   &-group{
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0 140px 0 90px;
   }
 
   &:hover {
@@ -142,6 +166,17 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
   &-logo {
     width: 200px;
+  }
+  &-logout{
+    width: 25px;
+    
+    img {
+      width: 20px;
+
+      &:hover {
+        width: 22px;
+      }
+    }
   }
 }
 

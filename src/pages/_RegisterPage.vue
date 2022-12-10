@@ -51,43 +51,31 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+<script setup>
+  import { ref } from 'vue'
+  import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+  import { useRouter } from 'vue-router'
+  // import { useRouter } from 'vue-router'
+  // const name = ref('')
+  const email = ref('')
+  const password = ref('')
+  const router = useRouter()
 
-export default {
-  name: 'registerPage',
-  data() {
-      return{
-      }
-    },
-  
-  setup() {
-    const name = ref('')
-    const email = ref('')
-    const password = ref('')
-    const error = ref(null)
-
-    const store = useStore()
-    const router = useRouter()
-
-    const Register = async () => {
-      try {
-        await store.dispatch('Register', {
-          email: email.value,
-          password: password.value,
-          name: name.value
-        })
+  const Register = async () => {
+    const auth = getAuth()
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then(() => {
+        console.log("Successfully registered!")
+        console.log(auth.currentUser)
         router.push('/login')
-      }
-      catch (err) {
-        error.value = err.message
-            }
-    }
-    return { Register, email, password, error }
-  }
-}
+      })
+      .catch((error) => {
+        console.log(error.code)
+        alert(error.message)
+      })
+    };
+  // const signWithGoogle = () => {
+  // }
 </script>
 
 <style lang="scss" scoped>

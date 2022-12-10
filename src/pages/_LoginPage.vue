@@ -8,8 +8,8 @@
           <h2 class="animation a1">С возвращением!</h2>
           <h4 class="animation a2">Войдите в свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <div v-if="error" class="alert alert-danger">{{error}}</div>
-        <form @submit.prevent="Login" class="form">
+        <div v-if="errMsg" class="alert alert-danger">{{ errMsg }}</div>
+        <form action="#" @submit.prevent="Login" class="form">
           <input
             id="email"
             type="email"
@@ -44,36 +44,42 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+<script setup>
+  import { ref } from 'vue'
+  import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+  import { useRouter } from 'vue-router'
 
-export default {
-  name: 'loginPage',
-  setup() {
-    const email = ref('')
-    const password = ref('')
-    const error = ref(null)
+  const email = ref('')
+  const password = ref('')
+  const errMsg = ref()
+  const router = useRouter()
 
-    const store = useStore()
-    const router = useRouter()
-
-    const Login = async () => {
-      try {
-        await store.dispatch('logIn', {
-          email: email.value,
-          password: password.value
-        })
+  const Login = async () => {
+    const auth = getAuth()
+    signInWithEmailAndPassword(auth, email.value, password.value)
+      .then(() => {
+        console.log("Successfully signed in!")
+        console.log(auth.currentUser)
         router.push('/')
-      }
-      catch (err) {
-        error.value = err.message
-      }
-    }
-    return { Login, email, password, error }
+      })
+      .catch((error) => {
+        console.log(error.code)
+        switch (error.code) {
+          case "auth/invalid-email":
+            errMsg.value = "Адрес электронной почты или пароль были неверными"
+            break;
+          case "auth/user-not-found":
+            errMsg.value = "Учетная запись с этим адресом электронной почты найдена не была"
+            break;
+          case "auth/wrong-password":
+            errMsg.value = "Пароль неверен"
+            break;
+          default:
+            errMsg.value = "Адрес электронной почты или пароль были неверными"
+            break;
+        }
+      })
   }
-};
 </script>
 
 <style lang="scss" scoped>
