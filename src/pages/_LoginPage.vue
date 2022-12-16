@@ -8,7 +8,6 @@
           <h2 class="animation a1">С возвращением!</h2>
           <h4 class="animation a2">Войдите в свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <div v-if="errMsg" class="alert alert-danger">{{ errMsg }}</div>
         <form action="#" @submit.prevent="Login" class="form">
           <input
             id="email"
@@ -29,6 +28,7 @@
             required
             autofocus
             v-model="password">
+          <div v-if="error" v-html="error" class="alert alert-danger"></div>
           <div class="links">
             <button class="animation a5">Забыли пароль</button>
             <button @click="$router.push('/register')" class="animation a5">Зарегистрироваться</button>
@@ -44,42 +44,33 @@
   </div>
 </template>
 
-<script setup>
-  import { ref } from 'vue'
-  import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-  import { useRouter } from 'vue-router'
+<script>
+import AuthenticationService from '../services/AuthenticationService.js'
 
-  const email = ref('')
-  const password = ref('')
-  const errMsg = ref()
-  const router = useRouter()
-
-  const Login = async () => {
-    const auth = getAuth()
-    signInWithEmailAndPassword(auth, email.value, password.value)
-      .then(() => {
-        console.log("Successfully signed in!")
-        console.log(auth.currentUser)
-        router.push('/')
-      })
-      .catch((error) => {
-        console.log(error.code)
-        switch (error.code) {
-          case "auth/invalid-email":
-            errMsg.value = "Адрес электронной почты или пароль были неверными"
-            break;
-          case "auth/user-not-found":
-            errMsg.value = "Учетная запись с этим адресом электронной почты найдена не была"
-            break;
-          case "auth/wrong-password":
-            errMsg.value = "Пароль неверен"
-            break;
-          default:
-            errMsg.value = "Адрес электронной почты или пароль были неверными"
-            break;
-        }
-      })
+export default {
+  data () {
+    return {
+      email: '',
+      password: '',
+      error: null
+    }
+  },
+  methods: {
+    async Login () {
+      try {
+        const response = await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+        this.$router.push('/')
+      } catch (error) {
+        this.error = error.response.data.error
+      }
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -125,7 +116,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   flex: 1;
   background-color: black;
   transition: 1s;
-  background-image: url(../assets/HEHE.jpg);
+  background-image: url(../assets/LOGIN_AND_REGISTER_ART.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -162,19 +153,23 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 }
 
   &-field {
-  height: 46px;
-  padding: 0 16px;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  font-family: 'Rubik', sans-serif;
-  outline: 0;
-  transition: .2s;
-  margin-top: 20px;
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    outline: 0;
+    transition: .2s;
+    margin-top: 20px;
 
-  &:focus {
-  border-color: #0f7ef1;
-}
-} 
+    &:focus {
+      border-color: #0f7ef1;
+    }
+  } 
+
+  &> .alert {
+    margin-top: 10px;
+  }
 }
 
 .links {

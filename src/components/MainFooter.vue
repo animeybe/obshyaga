@@ -1,5 +1,5 @@
 <template>
-  <footer id="main_footer" :class="userTheme">
+  <footer id="mainFooter" class="userTheme">
       <div class="wrapper">
       </div>
   </footer>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name:'main_footer',
+  name:'mainFooter',
     data() {
     return {
     };

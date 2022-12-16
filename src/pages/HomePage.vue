@@ -20,47 +20,36 @@
         </div>
       </section>
       <section class="_content">
-        <div class="_content__container _container">
-          <h2 class="_content__title">Остальной контент сайта</h2>
+        <div class="_content__container _container odd">
+          <h2 class="_content__title">В первый раз здесь?</h2>
           <div class="_content__text">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit deserunt porro, rem at deleniti earum quia! Mollitia labore enim possimus incidunt assumenda voluptate. Molestiae nobis, asperiores veritatis odio quis eius.</p>
+            Здесь ты можешь почувствовать себя как дома. Мы стараемся сделать всё возможное, чтобы сплотить студентов и предоставить им место, где они могут в любой момент попросить помощи. Мы считаем, что каждый в общежитии – это частичка большой семьи, где все поддерживают друг друга. Ведь в момент, когда ты далеко от дома, рядом должны быть те, кто не бросят тебя в час нужды.	
           </div>
         </div>  
+        <div class="_content__container _container even">
+          <h2 class="_content__title">Что мы даём вам?</h2>
+          <div class="_content__text">
+            Здесь ты можешь почувствовать себя как дома. Мы стараемся сделать всё возможное, чтобы сплотить студентов и предоставить им место, где они могут в любой момент попросить помощи. Мы считаем, что каждый в общежитии – это частичка большой семьи, где все поддерживают друг друга. Ведь в момент, когда ты далеко от дома, рядом должны быть те, кто не бросят тебя в час нужды.	
+          </div>
+        </div>
+
+        <div class="_content__authors_labelr"></div>
+        <div class="_content__authors _container">
+          <div class="_content__authors_first authors">
+            <div class="_content__authors_text">
+              <div class="_content__authors_name">Оболонский Дмитрий</div>
+              <div class="_content__authors_role">Студент ДВФУ</div>
+            </div>
+            <div class="_content__authors_image"></div>
+          </div>
+          <div class="_content__authors_second authors">
+            <div class="_content__authors_text">
+              <div class="_content__authors_name">Тэрэбуркэ Даниил</div>
+              <div class="_content__authors_role">Студент ДВФУ</div>
+            </div>
+            <div class="_content__authors_image"></div>
+          </div>
+        </div>
       </section>
   </div>
 </template>
@@ -149,7 +138,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
 ._container {
-  max-width: 1000px;
+  max-width: 70vw;
   margin: 0 auto;
   padding: 50px 20px;
 }
@@ -173,7 +162,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     color: #fbd784;
     text-shadow: 1px 1px 1px #121416;
     display: flex;
-    font-size: 20px;
+    font-size: 2vw;
     letter-spacing: 6px;
     margin:0 0 30px 10px;
     align-items: center;
@@ -182,18 +171,19 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
       content: "";
       margin:0 0 0 20px;
       background-color: #fbd784;
-      box-shadow: 1px 1px 1px #121416;
+      box-shadow: 0.1vw 0.1vw 0.1vw #121416;
       height: 2px;
     }
   }
   &__title {
-    color: #f4f4f4;
-    font-size: 50px;
-    text-shadow: 5px 5px 5px #121416;
-    margin-left: 30px;
+    color: #ebebeb;
+    font-size: 6vw;
+    text-shadow: 0.3vw 0.3vw 0.3vw #121416;
+    margin-left: 3vw;
+    font-family: 'Rubik Vinyl', cursive;
     .special {
-      font-size: 100px;
-      margin-left: -30px;
+      font-size: 9vw;
+      margin-left: -3vw;
     }
   }
   &__images {
@@ -240,17 +230,11 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     z-index: 3;
   }
 }
-// @media (max-aspect-ratio: 3/2) {
-//     .images-parallax__girl {
-//         background-position: 20% top;
-//     }
-// }
 
 ._content {
-  background-color: var(--background-accent-color);
+  background-color: var(--background-color-secondary);
   color: var(--text-accent-color);
   position: relative;
-  z-index: 2;
 
   &:before {
     pointer-events: none;
@@ -261,21 +245,87 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     width: 100%;
     height: 200px;
     transform:  translate(0px, -100%);
-    background: linear-gradient(180deg, rgba(11, 29, 38, 0) 5%, var(--background-accent-color) 100%);
+    background: linear-gradient(180deg, rgba(11, 29, 38, 0) 5%, var(--background-color-secondary) 100%);
   }
 
   &__title {
-    font-size: 35px;
+    // text-align: center;
+    font-size: 2vw;
     margin:0 0 30px 0;
+    font-family: 'Rubik Spray Paint', cursive;
   }
   &__text {
-    font-size: 16px;
+    font-size: 1vw;
     line-height: 150%;
+    letter-spacing: 1px;
+    text-indent: 20px;
+  }
+  
+  .odd {
+    text-align: left;
 
-    p {
-      margin:0 0 30px 0;
+    & ._content__title {
+      margin-left: 50px;
+    }
+  }
+  .even {
+    text-align: right;
+
+    & ._content__title {
+      margin-right: 50px;
     }
   }
 }
 
+._content__authors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+
+  &_first {
+    ._content__authors_image{
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      background: url(../assets/authors/DMITRII.jpg) top / cover no-repeat;
+      border-radius: 50%;
+    }
+  }
+
+  &_second {
+
+    ._content__authors_image{
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      background: url(../assets/authors/DANIL.jpg) top / cover no-repeat;
+      border-radius: 50%;
+    }
+  }
+
+  &_name{
+    font-size: 23px;
+    padding: 10px;
+  }
+  &_text {
+    text-align: center;
+  }
+
+  &_label {
+    background-color: var(--text-primary-color);
+    width: 100px;
+    height: 3px;
+  }
+}
+
+.authors {
+  font-family: 'Rubik 80s Fade', cursive;
+  width: 300px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
   </style>

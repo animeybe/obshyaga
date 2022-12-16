@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <Snow 
-      :active='true'
-      :zIndex='2'
-      :wind='1' 
-      :swing='3' 
-      :speed='h' 
       color="#FFFFFF"/>
       
     <Header />
@@ -54,5 +49,6 @@ ul li{list-style: none;}
 img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
+
 
 </style>

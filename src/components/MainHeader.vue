@@ -6,13 +6,13 @@
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
-          <button v-if="isLoggedIn" @click="$router.push('/news')" class="sections-news sections">Новости</button>
-          <button v-if="isLoggedIn" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
-          <button v-if="isLoggedIn" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
-          <button v-if="isLoggedIn" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
-          <button v-if="isLoggedIn" @click="handleLogOut" class="sections-logout"><img src="../assets/LOGOUT_ICON.png" alt="выйти"></button>
-          <button v-if="!isLoggedIn" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
-          <button v-if="!isLoggedIn" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
+          <button v-if="$store.state.token" @click="$router.push('/news')" class="sections-news sections">Новости</button>
+          <button v-if="$store.state.token" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
+          <button v-if="$store.state.token" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
+          <button v-if="$store.state.token" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
+          <button v-if="$store.state.token" @click="logout" class="sections-logout"><img src="../assets/LOGOUT_ICON.png" alt="выйти"></button>
+          <button v-if="!$store.state.token" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
+          <button v-if="!$store.state.token" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
         </div>
         <div class="changeThemes">
           <input
@@ -22,8 +22,8 @@
           class="switch-checkbox"
           />
           <label for="checkbox" class="switch-label">
-            <span><img src="../assets/MOON.png" alt="" width="26"></span>
-            <span><img src="../assets/SUN.png" alt="" width="26"></span>
+              <img src="../assets/MOON.png" alt="">
+              <img src="../assets/SUN.png" alt="">
             <div
               class="switch-toggle"
               :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -36,14 +36,11 @@
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-
 export default {
   name:'main_header',
     data() {
     return {
-      userTheme: "light-theme",
-      isLoggedIn: false,
+      userTheme: ''
     };
   },
   mounted() {
@@ -55,68 +52,44 @@ export default {
   },
   methods: {
     setTheme(theme) {
-      localStorage.setItem("user-theme", theme);
-      this.userTheme = theme;
-      document.documentElement.className = theme;
+      localStorage.setItem("user-theme", theme)
+      this.userTheme = theme
+      document.documentElement.className = theme
     },
     toggleTheme() {
       const activeTheme = localStorage.getItem("user-theme");
       if (activeTheme === "light-theme") {
-        this.setTheme("dark-theme");
+        this.setTheme("dark-theme")
       } else {
-        this.setTheme("light-theme");
+        this.setTheme("light-theme")
       }
     },
     getMediaPreference() {
       const hasDarkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
-      ).matches;
+      ).matches
       if (hasDarkPreference) {
-        return "dark-theme";
+        return "dark-theme"
       } else {
-        return "light-theme";
+        return "light-theme"
       }
     },
     getTheme() {
-      return localStorage.getItem("user-theme");
+      return localStorage.getItem("user-theme")
     },
+    logout() {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+    }
   },
   watch: {
     darkMode: function () {
       let htmlElement = document.documentElemen
-      localStorage.setItem("theme", this.darkMode);
-      htmlElement.setAttribute('theme', (this.darkMode ? 'darkMode' : ''));
+      localStorage.setItem("theme", this.darkMode)
+      htmlElement.setAttribute('theme', (this.darkMode ? 'darkMode' : ''))
     }
-  },
+  }
 }
-</script>
-
-<script setup>
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router'
-import { signOut } from 'firebase/auth'
-
-const isLoggedIn = ref(false);
-let auth;
-onMounted(() => {
-  auth = getAuth()
-  onAuthStateChanged(auth, (user) => {
-  if (user) {
-    isLoggedIn.value = true;
-  } else {
-    isLoggedIn.value = false;
-    }
-  });
-})
-
-const router = useRouter()
-
-const handleLogOut = () => {
-  signOut(auth).then(() => {
-    router.push('/')
-  })
-};
-
 </script>
 
 <style lang="scss" scoped>
@@ -143,13 +116,13 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 120px 0 100px;
+    padding: 0 10vw 0 5vw;
   }
 }
 
 .sections {
-  width: 155px;
-  font-size: 20px;
+  width: 13vw;
+  font-size: 1.6vw;
   text-align: center;
 
   &-group{
@@ -161,20 +134,21 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
   &:hover {
     text-shadow: 1px 1px 3px $color2;
-    font-size: 22px;
+    font-size: 1.5vw;
   }
 
   &-logo {
-    width: 200px;
+    width: 16vw;
   }
   &-logout{
-    width: 25px;
+    width: 1.7vw;
+    margin-right: 5vw;  
     
     img {
-      width: 20px;
+      width: 1.6vw;
 
       &:hover {
-        width: 22px;
+        width: 1.5vw;
       }
     }
   }
@@ -186,14 +160,14 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 .switch-label {
   /* for width, use the standard element-size */
-  width: 94px; 
+  width: 5vw; 
 
   /* for other dimensions, calculate values based on it */
   border-radius: var(--element-size);
   border: calc(var(--element-size) * 0.025) solid var(--accent-color);
   padding: calc(var(--element-size) * 0.1);
   font-size: calc(var(--element-size) * 0.3);
-  height: 30px;
+  height: 3.2vh;
 
   align-items: center;
   background: var(--text-primary-color);
@@ -203,22 +177,27 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   transition: background 0.5s ease;
   justify-content: space-between;
   z-index: 1;
+
+  img {
+    width:1.5vw;
+    margin:0px 0 0 0;
+  }
 } 
 
 .switch-toggle {
   position: absolute;
   background-color: var(--background-color-primary);
   border-radius: var(--element-size);
-  top: 1px;
+  top: 0.1vh;
   left: 0px;
-  height: 28px;
-  width: 50px;
+  height: 3vh;
+  width: 2.7vw;
   transform: translateX(0);
   transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .switch-toggle-checked {
-  transform: translateX(42px) !important;
+  transform: translateX(2.25vw) !important;
 }
 
 </style>

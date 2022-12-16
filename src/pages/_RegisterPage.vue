@@ -1,5 +1,5 @@
 <template>
-  <div id="registerPage" :class="userTheme">
+  <div id="registerPage" :class="userTheme" >
 
     <div class="container">
 
@@ -8,7 +8,6 @@
           <h2 class="animation a1">Добро пожаловать!</h2>
           <h4 class="animation a2">Создайте свою учетную запись, используя адрес электронной почты и пароль</h4>
         </div>
-        <div v-if="error" class="alert alert-danger">{{error}}</div>
         <form action="#" @submit.prevent="Register" class="form">
           <input
             id="name"
@@ -39,6 +38,7 @@
             required
             autofocus
             v-model="password">
+          <div v-if="error" v-html="error" class="alert alert-danger"></div>
           <button @click="$router.push('/login')" class="animation a6 link">Войти</button>
           <button class="animation a6 button">Зарегистрироваться</button>
         </form>
@@ -51,31 +51,35 @@
   </div>
 </template>
 
-<script setup>
-  import { ref } from 'vue'
-  import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-  import { useRouter } from 'vue-router'
-  // import { useRouter } from 'vue-router'
-  // const name = ref('')
-  const email = ref('')
-  const password = ref('')
-  const router = useRouter()
+<script>
+import AuthenticationService from '../services/AuthenticationService.js'
 
-  const Register = async () => {
-    const auth = getAuth()
-    createUserWithEmailAndPassword(auth, email.value, password.value)
-      .then(() => {
-        console.log("Successfully registered!")
-        console.log(auth.currentUser)
-        router.push('/login')
-      })
-      .catch((error) => {
-        console.log(error.code)
-        alert(error.message)
-      })
-    };
-  // const signWithGoogle = () => {
-  // }
+export default {
+  data () {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      error: null
+    }
+  },
+  methods: {
+    async Register () {
+      try {
+        const response = await AuthenticationService.register({
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+        this.$router.push('/')
+      } catch (error) {
+        this.error = error.response.data.error
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -120,7 +124,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   flex: 1;
   background-color: black;
   transition: 1s;
-  background-image: url(../assets/HEHE.jpg);
+  background-image: url(../assets/LOGIN_AND_REGISTER_ART.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -156,19 +160,23 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 }
 
   &-field {
-  height: 46px;
-  padding: 0 16px;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  font-family: 'Rubik', sans-serif;
-  outline: 0;
-  transition: .2s;
-  margin-top: 20px;
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    outline: 0;
+    transition: .2s;
+    margin-top: 20px;
+    
+    &:focus {
+      border-color: #0f7ef1;
+    }
+  } 
 
-  &:focus {
-  border-color: #0f7ef1;
-}
-} 
+  &> .alert {
+    margin-top: 10px;
+  }
 }
 
 .link{
