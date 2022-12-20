@@ -9,6 +9,8 @@ module.exports = (app) => {
 
     app.post('/login', AuthenticationController.login)
 
+    app.post('/update', AuthenticationController.update)
+
     app.get('/posts', PostsController.index)
-    app.post('/posts', PostsController.posts)
+    app.post('/posts', PostsController.post)
 }

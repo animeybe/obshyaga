@@ -6,13 +6,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap'); //Authors
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap'); //Titles
 
+$general-font: 'Rubik', sans-serif;
+$home-title-font: 'Rubik Vinyl', cursive;
+$authors-font: 'Rubik 80s Fade', cursive;
+$titles-font: 'Rubik Spray Paint', cursive;
+
 //<Подключаем шрифты>
 
 .app-background {
     background-color: var(--background-color-primary);
     color: var(--text-primary-color);
 
-    font-family: 'Rubik', sans-serif;
+    font-family: $general-font;
     a {
         color: var(--text-primary-color);
     }
@@ -25,7 +30,7 @@
         color: red;
     }
     .content {
-        min-height: calc(100vh - ($height-footer));
+        min-height: 87vh;
     }
 }
 
@@ -50,13 +55,12 @@
     }
 }
 #mainFooter {
-    height: $height-footer;
+    height: 13vh;
 
     background-color: var(--background-color-secondary);
     color: var(--text-primary-color);
-    box-shadow: 1px 1px 20px var(--shadow-color);
 
-    font-family: 'Rubik', sans-serif;
+    font-family: $general-font;
     a {
         color: var(--text-primary-color);
     }

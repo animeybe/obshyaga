@@ -56,5 +56,45 @@ module.exports = {
                 error: 'Произошла ошибка при попытке входа в систему.'
             })
         }
+    },
+    async update (req, res) {
+        try {
+            const {name, dorm, email, password, hometown, bithdate, room, id} = req.body
+
+            const currUser = await User.findOne(
+                {
+                    where: {
+                        id: id
+                    }
+                }
+            )
+
+            currUser.name = name
+            currUser.dorm = dorm
+            currUser.email = email
+            currUser.password = password
+            currUser.hometown = hometown
+            currUser.bithdate = bithdate
+            currUser.room = room
+
+            const userJson = currUser.toJSON()
+
+            currUser.save().then(function(newUser){
+                res.send({
+                    user: userJson,
+                    token: jwtSignUser(userJson)
+                })
+            }).catch(function(error){
+                res.status(503).send({
+                    error: 'Произошла ошибка при попытке обновления системы.'
+                })
+            });
+
+            currUser.save()
+        } catch (error) {
+            res.status(500).send({
+                error: 'Произошла ошибка при попытке обновления системы.'
+            })
+        }
     }
 }

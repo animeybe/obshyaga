@@ -62,9 +62,16 @@ export default {
           email: this.email,
           password: this.password
         })
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+        console.log('Where')
+        this.$cookie.setCookie('jwt', response.data.token);
+        this.$cookie.setCookie('user', response.data.user);
+
+        setTimeout(function () {
+          location.reload()
+        }, 0.5 * 1000)
+
         this.$router.push('/')
+        
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -149,7 +156,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   margin-top: 10px;
   color: #fff;
   letter-spacing: 1px;
-  font-family: 'Rubik', sans-serif;
+  font-family: $general-font;
 }
 
   &-field {
@@ -157,7 +164,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     padding: 0 16px;
     border: 2px solid #ddd;
     border-radius: 4px;
-    font-family: 'Rubik', sans-serif;
+    font-family: $general-font;
     outline: 0;
     transition: .2s;
     margin-top: 20px;

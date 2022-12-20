@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         author_id: DataTypes.INTEGER,
         name: DataTypes.STRING,
         text: DataTypes.TEXT,
+        dorm: DataTypes.STRING
     })
 
     return Post

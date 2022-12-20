@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="_content__authors_labelr"></div>
+        <div class="_content__authors_title">Авторы проекта</div>
         <div class="_content__authors _container">
           <div class="_content__authors_first authors">
             <div class="_content__authors_text">
@@ -140,7 +140,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 ._container {
   max-width: 70vw;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 50px 0;
 }
 .parallax {
   min-height: 100vh;
@@ -180,7 +180,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     font-size: 6vw;
     text-shadow: 0.3vw 0.3vw 0.3vw #121416;
     margin-left: 3vw;
-    font-family: 'Rubik Vinyl', cursive;
+    font-family: $home-title-font;
     .special {
       font-size: 9vw;
       margin-left: -3vw;
@@ -188,10 +188,10 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   }
   &__images {
     position: absolute;
-    width: 120%;
-    height: 120%;
-    top: -15%;
-    left: -15%;
+    width: 130%;
+    height: 130%;
+    top: -25%;
+    left: -25%;
     z-index: 0;
   }
 }
@@ -236,6 +236,10 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   color: var(--text-accent-color);
   position: relative;
 
+  &__container {
+    max-width: 50vw;
+  }
+
   &:before {
     pointer-events: none;
     content: "";
@@ -249,10 +253,9 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   }
 
   &__title {
-    // text-align: center;
     font-size: 2vw;
     margin:0 0 30px 0;
-    font-family: 'Rubik Spray Paint', cursive;
+    font-family: $titles-font;
   }
   &__text {
     font-size: 1vw;
@@ -281,51 +284,59 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 700px;
+  max-width: 60vw;
 
   &_first {
     ._content__authors_image{
-      width: 200px;
-      height: 200px;
-      margin-bottom: 20px;
+      width: 18vw;
+      height: 18vw;
+      margin-top: 5vh;
       background: url(../assets/authors/DMITRII.jpg) top / cover no-repeat;
       border-radius: 50%;
+      border: 5px solid var(--shadow-text-color);
+      box-shadow: 0 0 1vw var(--shadow-color);
     }
   }
 
   &_second {
 
     ._content__authors_image{
-      width: 200px;
-      height: 200px;
-      margin-bottom: 20px;
+      width: 18vw;
+      height: 18vw;
+      margin-top: 5vh;
       background: url(../assets/authors/DANIL.jpg) top / cover no-repeat;
       border-radius: 50%;
+      border: 5px solid var(--shadow-text-color);
+      box-shadow: 0 0 1vw var(--shadow-color);
     }
   }
 
   &_name{
-    font-size: 23px;
+    font-size: 2.2vw;
     padding: 10px;
+    text-shadow: 0.1vw 0.1vw 1.5vw var(--shadow-color);
   }
   &_text {
+    font-size: 1.5vw;
     text-align: center;
+    text-shadow: 0.1vw 0.1vw 1.5vw var(--shadow-color);
   }
 
-  &_label {
-    background-color: var(--text-primary-color);
-    width: 100px;
-    height: 3px;
+  &_title {
+    text-align: center;
+    font-size: 2vw;
+    margin:30vh 0 0 0;
+    font-family: $titles-font;
   }
 }
 
 .authors {
-  font-family: 'Rubik 80s Fade', cursive;
-  width: 300px;
-  height: 320px;
+  font-family: $authors-font;
+  width: 30vw;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
   </style>

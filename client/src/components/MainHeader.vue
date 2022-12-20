@@ -6,13 +6,13 @@
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
-          <button v-if="$store.state.token" @click="$router.push('/news')" class="sections-news sections">Новости</button>
-          <button v-if="$store.state.token" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
-          <button v-if="$store.state.token" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
-          <button v-if="$store.state.token" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
-          <button v-if="$store.state.token" @click="logout" class="sections-logout"><img src="../assets/LOGOUT_ICON.png" alt="выйти"></button>
-          <button v-if="!$store.state.token" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
-          <button v-if="!$store.state.token" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
+          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/news')" class="sections-news sections">Новости</button>
+          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
+          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
+          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
+          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="logout" class="sections-logout"><img src="../assets/LOGOUT_ICON.png" alt="выйти"></button>
+          <button v-if="!this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/register')" class="sections-profile sections">Создать аккаунт</button>
+          <button v-if="!this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/login')" class="sections-profile sections">Войти</button>
         </div>
         <div class="changeThemes">
           <input
@@ -78,8 +78,14 @@ export default {
       return localStorage.getItem("user-theme")
     },
     logout() {
-      this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setUser', null)
+      this.$cookie.removeCookie('jwt');
+      this.$cookie.removeCookie('user');
+
+      setTimeout(function () {
+        location.reload()
+      }, 0.5 * 1000)
+      
+      this.$router.push('/')
     }
   },
   watch: {
@@ -139,6 +145,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
   &-logo {
     width: 16vw;
+    height: 13vh;
   }
   &-logout{
     width: 1.7vw;
@@ -175,12 +182,12 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   display: flex;
   position: relative;
   transition: background 0.5s ease;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 1;
 
   img {
     width:1.5vw;
-    margin:0px 0 0 0;
+    margin: 0.5vw;
   }
 } 
 

@@ -10,15 +10,11 @@
     name: 'app',
     data() {
       return{
-        currentTheme: localStorage.getItem("theme-color"),
       }
     },
     components:{
     },
     methods: {
-      changeTheme() {
-        this.currentTheme = localStorage.getItem("theme-color")
-      }
     }
   }
   </script>
@@ -50,7 +46,7 @@
     border: 3px solid $color3;
   }
   .text{
-    font-family: 'Rubik', sans-serif;
+    font-family: $general-font;
     text-align: center;
     font-size: 18px;
   }

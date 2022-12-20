@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from '../src/router/index.js'
-import store from '@/store'
+import { VueCookieNext } from 'vue-cookie-next'
 
-createApp(App).use(router).use(store).mount('#app')
+createApp(App).use(router).use(VueCookieNext).mount('#app')
+
+VueCookieNext.config({ expire: '7d' })

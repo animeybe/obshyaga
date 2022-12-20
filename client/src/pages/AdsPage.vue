@@ -2,18 +2,18 @@
     <div id="AdsPage" :class="userTheme">
   
     <div class="block wrapper">
-      <div v-for="post in posts" :key="post.id" class="card">
+      <!-- <div v-for="post in posts" :key="post.id" class="card">
         <h1 class="title">{{ post.name }}</h1>
         <h1 class="quest">{{ post.text }}</h1>
         <h1 class="author">{{ post.author_id }}</h1>
-      </div>
+      </div> -->
     </div>
   </div>
   
   </template>
   
   <script>
-  import PostsService from '@/services/PostsService'
+  // import PostsService from '@/services/PostsService'
   
   export default {
     name: 'AdsPage',
@@ -22,9 +22,9 @@
         posts: null
       }
     },
-    async mounted() {
-      this.posts = (await PostsService.getAllPosts()).data
-    }
+    // async mounted() {
+    //   this.posts = (await PostsService.getAllPosts()).data
+    // }
   }
   </script>
   
