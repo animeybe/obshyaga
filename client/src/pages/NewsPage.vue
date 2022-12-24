@@ -1,13 +1,13 @@
 <template>
-    <div id="comp" :class="userTheme">
-  
+    <div id="NewPages" :class="userTheme">
+      <div class="title">Новости</div>
     </div>
   </template>
   
   <script>
   
   export default {
-    name: 'app',
+    name: 'NewPages',
     data() {
       return{
       }
@@ -37,17 +37,12 @@
   img {vertical-align: top;}
   h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   /*----------------------------*/
-  .block{
-    display: flex;
-    margin: 500px 160px 0 100px;
-  }
-  .icy_bush{
-    max-width: 500px;
-    border: 3px solid $color3;
-  }
-  .text{
-    font-family: $general-font;
+  .title{
+    font-family: $titles-font;
+    font-size: 5vw;
+    color: var(--text-accent-2-color);
+    width: 30vw;
+    margin: 5vh auto;
     text-align: center;
-    font-size: 18px;
   }
   </style>

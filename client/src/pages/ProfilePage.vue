@@ -3,21 +3,25 @@
       <div class="wrapper">
         <div class="left">
           <div class="left-image">
-            <img src="../assets/LOGOUT_ICON.png" alt="">
+            <img v-if="avatarImage" :src="avatarImage" class="left-avatar" />
+            <img v-if="!avatarImage" src="../assets/NO_AVATAR.jpg" class="left-avatar" />
           </div>
           <div class="left-settings">
-            <a class="left-settings_btn">Сменить фото профиля</a>
-            <a href="#settings" class="left-settings_btn">Изменить данные профиля</a>
+            <input @change=uploadImage id="file" type="file" class="switch-photo">
+            <label class="left-settings_btn _1" for="file">
+              <a class="">Сменить фото профиля</a>
+            </label>
+            <a href="#settings" class="left-settings_btn _2">Изменить данные профиля</a>
           </div>
         </div>
         <div class="right">
           <p class="name title">{{ this.$cookie.getCookie('user').name }}</p>
           <div class="right-info">
-            <p class="email">EMAIL : {{ this.$cookie.getCookie('user').email }}</p>
-            <p class="dorm">DORM : {{ this.$cookie.getCookie('user').dorm }}</p>
-            <p class="room">ROOM : {{ this.$cookie.getCookie('user').room }}</p>
-            <p class="hometown">HOMETOWN : {{ this.$cookie.getCookie('user').hometown }}</p>
-            <p class="birthdate">BIRTDATE : {{ this.$cookie.getCookie('user').bithdate }}</p>
+            <p class="email">Электронная почта : {{ this.$cookie.getCookie('user').email }}</p>
+            <p class="dorm">Общежитие : {{ this.$cookie.getCookie('user').dorm }}</p>
+            <p class="room">Комнта : {{ this.$cookie.getCookie('user').room }}</p>
+            <p class="hometown">Родной город : {{ this.$cookie.getCookie('user').hometown }}</p>
+            <p class="birthdate">Дата рождения : {{ this.$cookie.getCookie('user').bithdate }}</p>
           </div>
         </div>
       </div>
@@ -26,59 +30,131 @@
           <a href="#" class="popup__close">X</a>
           <form action="#" class='form'>
           <p class='field required'>
-            <label class='label required' for='name'>Full name</label>
+            <label class='label required' for='name'>Полное имя</label>
             <input class='text-input' id='name' name='name' type='text' v-model="name">
           </p>
           <p class='field required half'>
-            <label class='label' for='email'>E-mail</label>
+            <label class='label' for='email'>Электронная почта</label>
             <input class='text-input' id='email' name='email' type='email' v-model="email">
           </p>
           <p class='field half required'>
-            <label class='label' for='password'>Password</label>
+            <label class='label' for='password'>Пароль</label>
             <input class='text-input' id='password' name='password' type='password' v-model="password">
           </p>
           <p class='field half'>
-            <label class='label' for='hometown'>Hometowm</label>
+            <label class='label' for='hometown'>Родной город</label>
             <input class='text-input' id='hometown' name='hometown' type='text' v-model="hometown">
           </p>
           <p class='field half'>
-            <label class='label' for='bithdate'>Bithdate</label>
-            <input class='text-input' id='bithdate' name='bithdate' type='text' v-model="bithdate">
+            <label class='label' for='bithdate'>Дата рождения</label>
+            <input class='text-input' id='bithdate' name='bithdate' type='date' v-model="bithdate">
           </p>
           <div class='field'>
             <label class='label'>Кампус</label>
             <ul class='options'>
               <li class='option'>
-                <input class='option-input' id='option-0' name='option' type='radio' value='0'>
-                <label class='option-label' for='option-0'>React</label>
+                <input v-model="dorm" class='option-input' id='option-0' name='option' type='radio' value='Кампус №11'>
+                <label class='option-label' for='option-0'>11</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-1' name='option' type='radio' value='1'>
-                <label class='option-label' for='option-1'>Vue</label>
+                <input v-model="dorm" class='option-input' id='option-1' name='option' type='radio' value='Кампус №10'>
+                <label class='option-label' for='option-1'>10</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-2' name='option' type='radio' value='2'>
-                <label class='option-label' for='option-2'>Angular</label>
+                <input v-model="dorm" class='option-input' id='option-2' name='option' type='radio' value='Кампус №9'>
+                <label class='option-label' for='option-2'>9</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-3' name='option' type='radio' value='3'>
-                <label class='option-label' for='option-3'>Riot</label>
+                <input v-model="dorm" class='option-input' id='option-3' name='option' type='radio' value='Кампус №8.2'>
+                <label class='option-label' for='option-3'>8.2</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-4' name='option' type='radio' value='4'>
-                <label class='option-label' for='option-4'>Polymer</label>
+                <input v-model="dorm" class='option-input' id='option-4' name='option' type='radio' value='Кампус №8.1'>
+                <label class='option-label' for='option-4'>8.1</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-5' name='option' type='radio' value='5'>
-                <label class='option-label' for='option-5'>Ember</label>
+                <input v-model="dorm" class='option-input' id='option-5' name='option' type='radio' value='Кампус №7.2'>
+                <label class='option-label' for='option-5'>7.2</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-6' name='option' type='radio' value='6'>
-                <label class='option-label' for='option-6'>Meteor</label>
+                <input v-model="dorm" class='option-input' id='option-6' name='option' type='radio' value='Кампус №7.1'>
+                <label class='option-label' for='option-6'>7.1</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-7' name='option' type='radio' value='7'>
-                <label class='option-label' for='option-7'>Knockout</label>
+                <input v-model="dorm" class='option-input' id='option-7' name='option' type='radio' value='Кампус №6.2'>
+                <label class='option-label' for='option-7'>6.2</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-8' name='option' type='radio' value='Кампус №6.1'>
+                <label class='option-label' for='option-8'>6.1</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-9' name='option' type='radio' value='Кампус №5'>
+                <label class='option-label' for='option-9'>5</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-10' name='option' type='radio' value='Кампус №4'>
+                <label class='option-label' for='option-10'>4</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-11' name='option' type='radio' value='Кампус №3'>
+                <label class='option-label' for='option-11'>3</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-12' name='option' type='radio' value='Кампус №2'>
+                <label class='option-label' for='option-12'>2</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-13' name='option' type='radio' value='Кампус №1'>
+                <label class='option-label' for='option-13'>1</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-14' name='option' type='radio' value='Кампус №2.8'>
+                <label class='option-label' for='option-14'>2.8</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-15' name='option' type='radio' value='Кампус №2.7'>
+                <label class='option-label' for='option-15'>2.7</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-16' name='option' type='radio' value='Кампус №2.6'>
+                <label class='option-label' for='option-16'>2.6</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-17' name='option' type='radio' value='Кампус №2.5'>
+                <label class='option-label' for='option-17'>2.5</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-18' name='option' type='radio' value='Кампус №2.4'>
+                <label class='option-label' for='option-18'>2.4</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-19' name='option' type='radio' value='Кампус №2.3'>
+                <label class='option-label' for='option-19'>2.3</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-20' name='option' type='radio' value='Кампус №2.2'>
+                <label class='option-label' for='option-20'>2.2</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-21' name='option' type='radio' value='Кампус №2.1'>
+                <label class='option-label' for='option-21'>2.1</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-22' name='option' type='radio' value='Кампус №1.11'>
+                <label class='option-label' for='option-22'>1.11</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-23' name='option' type='radio' value='Кампус №1.10'>
+                <label class='option-label' for='option-23'>1.10</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-24' name='option' type='radio' value='Кампус №1.9'>
+                <label class='option-label' for='option-24'>1.9</label>
+              </li>
+              <li class='option'>
+                <input v-model="dorm" class='option-input' id='option-25' name='option' type='radio' value='Кампус №1.8'>
+                <label class='option-label' for='option-25'>1.8</label>
               </li>
             </ul>
           </div>
@@ -86,45 +162,37 @@
             <label class='label'>Городские общаги</label>
             <ul class='options'>
               <li class='option'>
-                <input class='option-input' id='option-8' name='option' type='radio' value='8'>
-                <label class='option-label' for='option-8'>React</label>
+                <input v-model="dorm" class='option-input' id='option-26' name='option' type='radio' value='Город №2'>
+                <label class='option-label' for='option-26'>2</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-9' name='option' type='radio' value='9'>
-                <label class='option-label' for='option-9'>Vue</label>
+                <input v-model="dorm" class='option-input' id='option-27' name='option' type='radio' value='Город №3'>
+                <label class='option-label' for='option-27'>3</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-10' name='option' type='radio' value='10'>
-                <label class='option-label' for='option-10'>Angular</label>
+                <input v-model="dorm" class='option-input' id='option-28' name='option' type='radio' value='Город №6'>
+                <label class='option-label' for='option-28'>6</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-11' name='option' type='radio' value='11'>
-                <label class='option-label' for='option-11'>Riot</label>
+                <input v-model="dorm" class='option-input' id='option-29' name='option' type='radio' value='Город №11'>
+                <label class='option-label' for='option-29'>11</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-12' name='option' type='radio' value='12'>
-                <label class='option-label' for='option-12'>Polymer</label>
+                <input v-model="dorm" class='option-input' id='option-30' name='option' type='radio' value='Город №13'>
+                <label class='option-label' for='option-30'>13</label>
               </li>
               <li class='option'>
-                <input class='option-input' id='option-13' name='option' type='radio' value='13'>
-                <label class='option-label' for='option-13'>Ember</label>
-              </li>
-              <li class='option'>
-                <input class='option-input' id='option-14' name='option' type='radio' value='14'>
-                <label class='option-label' for='option-14'>Meteor</label>
-              </li>
-              <li class='option'>
-                <input class='option-input' id='option-15' name='option' type='radio' value='15'>
-                <label class='option-label' for='option-15'>Knockout</label>
+                <input v-model="dorm" class='option-input' id='option-31' name='option' type='radio' value='Город №14'>
+                <label class='option-label' for='option-31'>14</label>
               </li>
             </ul>
           </div>
           <p class='field half'>
-            <label class='label' for='login'>Room number</label>
-            <input class='text-input' id='login' name='login' type='text' v-model="room">
+            <label class='label' for='login'>Номер комнаты</label>
+            <input class='text-input' id='login' name='login' type='number' v-model="room">
           </p>
           <p class='field half'>
-            <input @click="update" class='button' type='submit' value='Update'>
+            <input @click="update" class='button' type='submit' value='Обновить'>
           </p>
         </form>
         </div>
@@ -139,6 +207,7 @@ export default {
   name: 'ProfilePage',
   data() {
     return{
+      avatarImage: null,
       name: '',
       dorm: '',
       email: '',
@@ -150,6 +219,32 @@ export default {
     }
   },
   methods: {
+    // async onUpload(image) {
+    //   const formData = new FormData()
+    //   formData.append('imagesArray', image)
+    //   const response = await AuthenticationService.uploadImage({
+    //     photo: formData,
+    //     id: this.id
+    //   })
+    //   this.$cookie.removeCookie('user')
+    //   this.$cookie.removeCookie('token')
+    //   this.$cookie.setCookie('jwt', response.data.token);
+    //   this.$cookie.setCookie('user', response.data.user);
+
+    //   setTimeout(function () {
+    //     location.reload()
+    //   }, 0.5 * 1000)
+
+    //   this.$router.push('/profile')
+    // }, 
+    uploadImage(e){
+      this.imagesArray = e.target.files[0]
+      const reader = new FileReader();
+      reader.readAsDataURL(this.imagesArray);
+      reader.onload = e =>{
+        this.avatarImage = e.target.result;
+      };
+    },
     async update() {
       try {
         const response = await AuthenticationService.update({
@@ -176,7 +271,12 @@ export default {
         this.error = err.response.data.error
       }
     }
-  }
+  },
+  // watch: {
+  //   avatarImage: function () {
+  //     this.onUpload(this.imagesArray)
+  //   }
+  // }
 }
 </script>
 
@@ -201,11 +301,17 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 .wrapper {
   display: flex;
-  border: 1.5vw solid var(--background-color-secondary);
+  border-top: 1.5vw solid var(--background-color-secondary);
+  border-bottom: 1.5vw solid var(--background-color-secondary);
+  color: var(--text-secondary-color);
+
+  a {
+    color: var(--text-secondary-color);
+  }
 }
 
 .left {
-  width: 47.95vw;
+  width: 49.5vw;
   height: 84.2vh;
   display: flex;
   flex-direction: column;
@@ -219,7 +325,9 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     border-right: 1.5vw solid var(--background-color-secondary);
 
     img {
-      width: 200px;
+      width: 20vw;
+      border-radius: 50%;
+      border: 0.5vw solid var(--background-color-secondary);
     }
   }
 
@@ -231,12 +339,30 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     align-items: center;
     border-right: 1.5vw solid var(--background-color-secondary);
     border-bottom: 1.5vw solid var(--background-color-secondary);
+    font-size: 2vw;
 
+    .switch-photo {
+      display: none;
+    }
+
+    a {
+      padding: 1vh 4vw;
+      border-radius: 1vw;
+      background: rgb(60, 81, 214);
+      border: 3px solid rgba(0, 0, 0, 0.2);
+      color: white;
+      box-shadow: 0 .75rem .5rem -.5rem rgba(179, 215, 230, 0.7);
+    }
+
+    ._1 {
+      margin-bottom: 4vh;
+      cursor: pointer;
+    }
   }
 }
 
 .right {
-  width: 47.95vw;
+  width: 49.5vw;
   height: 84.2vh;
   padding-top: 10vh;
   border-bottom: 1.5vw solid var(--background-color-secondary);
@@ -247,14 +373,14 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   }
 
   & .title {
-    font-size: 2vw;
+    font-size: 2.5vw;
     margin-bottom: 10vh;
     text-align: center;
   }
 
   & p {
-    font-size: 1.4vw;
-    margin-bottom: 3vh;
+    font-size: 1.6vw;
+    margin-bottom: 4vh;
   }
 }
 
@@ -408,7 +534,8 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 }
 
 .form {
-  max-width: 40em;
+  max-width: calc(100vw / 2.5);
+  height: 95vh;
   margin: 0 auto;
   position: relative;
   display: flex;

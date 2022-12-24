@@ -14,12 +14,12 @@ module.exports = {
             switch (error.details[0].context.key) {
                 case 'email':
                     res.status(400).send({
-                        error: 'You must provide a valid email address'
+                        error: 'Вы должны указать действительный адрес элетронной почты.'
                     })
                     break
                 case 'password':
                     res.status(400).send({
-                        error: `Вы должны указать действительный адрес электронной почты
+                        error: `Вы должны указать пароль в верном формате.
                         <br>
                         1. Пароль должен содержать ТОЛЬКО следующие символы: строчные, прописные, цифры.
                         <br>
@@ -29,7 +29,7 @@ module.exports = {
                     break
                 default:
                     res.status(400).send({
-                        error: 'Invalid registration information'
+                        error: 'Неверная данные регистрации'
                     })
                     break
             }

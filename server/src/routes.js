@@ -11,6 +11,11 @@ module.exports = (app) => {
 
     app.post('/update', AuthenticationController.update)
 
-    app.get('/posts', PostsController.index)
-    app.post('/posts', PostsController.post)
+    app.post('/uploadImage', AuthenticationController.uploadImage)
+
+    app.post('/getposts', PostsController.index)
+
+    app.post('/getauthorname', PostsController.getAuthorName)
+
+    app.post('/createposts', PostsController.post)
 }

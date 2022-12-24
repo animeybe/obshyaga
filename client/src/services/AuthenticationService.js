@@ -9,5 +9,8 @@ export default {
   },
   update (data) {
     return Api().post('update', data)
+  },
+  uploadImage (data) {
+    return Api().post('uploadImage', data)
   }
 }

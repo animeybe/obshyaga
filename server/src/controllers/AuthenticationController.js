@@ -68,32 +68,64 @@ module.exports = {
                     }
                 }
             )
-
-            currUser.name = name
-            currUser.dorm = dorm
-            currUser.email = email
-            currUser.password = password
-            currUser.hometown = hometown
-            currUser.bithdate = bithdate
-            currUser.room = room
+            
+            if (name) currUser.name = name
+            if (dorm) currUser.dorm = dorm
+            if (email) currUser.email = email
+            if (password) currUser.password = password
+            if (hometown) currUser.hometown = hometown
+            if (bithdate) currUser.bithdate = bithdate
+            if (room) currUser.room = room
 
             const userJson = currUser.toJSON()
 
-            currUser.save().then(function(newUser){
+            currUser.save().then(function(){
                 res.send({
                     user: userJson,
                     token: jwtSignUser(userJson)
                 })
-            }).catch(function(error){
+            }).catch(function(){
                 res.status(503).send({
                     error: 'Произошла ошибка при попытке обновления системы.'
                 })
             });
-
-            currUser.save()
         } catch (error) {
             res.status(500).send({
-                error: 'Произошла ошибка при попытке обновления системы.'
+                error: 'Произошла ошибка при обработке введённых данных.'
+            })
+        }
+    },
+    async uploadImage (req, res) {
+        try {
+            const {photo, id} = req.body
+
+            const currUser = await User.findOne(
+                {
+                    where: {
+                        id: id
+                    }
+                }
+            )
+            
+            var binaryData = [];
+            binaryData.push(photo);
+            currUser.photo = new Blob(binaryData)
+
+            const userJson = currUser.toJSON()
+
+            currUser.save().then(function(){
+                res.send({
+                    user: userJson,
+                    token: jwtSignUser(userJson)
+                })
+            }).catch(function(){
+                res.status(503).send({
+                    error: 'Произошла ошибка при попытке обновления системы.'
+                })
+            });
+        } catch (error) {
+            res.status(500).send({
+                error: 'Произошла ошибка при обработке введённых данных.'
             })
         }
     }

@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         dorm: DataTypes.STRING,
         room: DataTypes.STRING,
         hometown: DataTypes.STRING,
-        birthdate: DataTypes.DATE,
+        bithdate: DataTypes.DATEONLY,
         photo: DataTypes.BLOB
     }, {
         hooks: {

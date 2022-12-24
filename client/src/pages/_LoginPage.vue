@@ -62,7 +62,6 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log('Where')
         this.$cookie.setCookie('jwt', response.data.token);
         this.$cookie.setCookie('user', response.data.user);
 

@@ -91,7 +91,7 @@ export default {
         positionX = positionX + (distX * speed);
         positionY = positionY + (distY * speed);
 
-        //Передаём стили
+        //Передаём стили (смещение)
         sky.style.cssText = `transform: translate(${positionX / forSky}%, ${positionY / forSky}%);`;
         back.style.cssText = `transform: translate(${positionX / forBack}%, ${positionY / forBack}%);`;
         girl.style.cssText = `transform: translate(${positionX / forGirl}%, ${positionY / forGirl}%);`;

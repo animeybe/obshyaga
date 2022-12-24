@@ -1,6 +1,7 @@
 <template>
   <footer id="mainFooter" class="userTheme">
       <div class="wrapper">
+        <div class="title">Всё конец!</div>
       </div>
   </footer>
 </template>
@@ -34,6 +35,13 @@ img {vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 /*----------------------------*/
 
-
+.wrapper {
+  height: 100%;
+}
+.title {
+  font-size: 2vw;
+  text-align: center;
+  padding-top: 5vh;
+}
 
 </style>

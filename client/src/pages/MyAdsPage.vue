@@ -66,13 +66,13 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 .wrapper {
   max-width: 80vw;
-  margin: 10vh auto 0 auto;
+  margin: 5vh auto 0 auto;
 }
 
 .create-ads {
 
   &__title {
-    font-size: 4vw;
+    font-size: 5vw;
     font-family: $titles-font;
     color: var(--text-accent-2-color);
     margin-bottom: 8vh;
