@@ -6,7 +6,6 @@ import Home from '../pages/HomePage.vue'
 import Ads from '../pages/AdsPage.vue'
 import myAds from '../pages/MyAdsPage.vue'
 import Profile from '../pages/ProfilePage.vue'
-import News from '../pages/NewsPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -38,10 +37,6 @@ const router = createRouter({
         {
             path: '/myads',
             component: myAds
-        },
-        {
-            path: '/news',
-            component: News
         },
     ]
 })

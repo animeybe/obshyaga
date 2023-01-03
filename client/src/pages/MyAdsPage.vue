@@ -15,6 +15,19 @@
         <input @click="СreatePost" type="submit" value="Отправить">
       </form>
     </div>
+
+    <div class="posts wrapper">
+    <div v-for="post in posts" :key="post.id" class="posts_card">
+      <div class="posts-left">
+        <img :src="require(`../assets/POSTS/POST_${(post.id % 20)+1}.jpg`)" alt="">
+      </div>
+      <div class="posts-right">
+        <h1 class="posts_title">{{ post.name }}</h1>
+        <h1 class="posts_quest">{{ post.text }}</h1>
+        <h1 class="posts_author">{{ post.author_id }}</h1>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -25,11 +38,13 @@ export default {
   name: 'MyAdsPage',
   data() {
     return{
+      posts: null, 
+      dorm: this.$cookie.getCookie('user').dorm,
       post: {
         author_id: this.$cookie.getCookie('user').id,
         name: null,
         text: null,
-        dorm: this.$cookie.getCookie('user').dorm
+        dorm: this.$cookie.getCookie('user').dorm,
       }
     }
   },
@@ -41,6 +56,9 @@ export default {
         console.log(err)
       }
     } 
+  },
+  async mounted() {
+    this.posts = (await PostsService.getAllPosts({dorm:this.dorm})).data
   }
 }
 </script>
@@ -105,6 +123,43 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
+  }
+}
+
+.posts{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 80vw;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  &_card{
+    text-align: center;
+    display: flex;
+    border: 1px solid #000;
+    width: 48.5%;
+    height: 200px;
+    margin-bottom: 20px;
+    background-color: #5976d0;
+    color: #FFF;
+  }
+
+  &-left{
+    width: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 

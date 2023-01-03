@@ -6,7 +6,6 @@
           <img class="sections-logo" alt="logo sleeps at home" src="../assets/LOGO.png" />
         </button>
         <div class="sections-group">
-          <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/news')" class="sections-news sections">Новости</button>
           <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/ads')" class="sections-ads sections">Доска <br> объявлений</button>
           <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/myads')" class="sections-myads sections">Мои <br> объявления</button>
           <button v-if="this.$cookie.isCookieAvailable('jwt')" @click="$router.push('/profile')" class="sections-profile sections">Профиль</button>
@@ -135,7 +134,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     flex: 1 1 auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center
   }
 
   &:hover {
