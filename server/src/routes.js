@@ -13,9 +13,11 @@ module.exports = (app) => {
 
     app.post('/uploadImage', AuthenticationController.uploadImage)
 
-    app.post('/getposts', PostsController.index)
+    app.post('/getAllPosts', PostsController.getAllPosts)
 
-    app.post('/getauthorname', PostsController.getAuthorName)
+    app.post('/getPosts', PostsController.getPosts)
 
     app.post('/createposts', PostsController.post)
+
+    app.post('/deletePost', PostsController.deletePost)
 }

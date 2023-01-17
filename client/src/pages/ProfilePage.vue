@@ -29,9 +29,13 @@
         <div class="popup-settings__body">
           <a href="#" class="popup__close">X</a>
           <form action="#" class='form'>
-          <p class='field required'>
+          <p class='field required half'>
             <label class='label required' for='name'>Полное имя</label>
             <input class='text-input' id='name' name='name' type='text' v-model="name">
+          </p>
+          <p class='field required half'>
+            <label class='label required' for='name'>Логин Telegram</label>
+            <input class='text-input' id='nameT' name='nameT' type='text' v-model="nameT">
           </p>
           <p class='field required half'>
             <label class='label' for='email'>Электронная почта</label>
@@ -209,6 +213,7 @@ export default {
     return{
       avatarImage: null,
       name: '',
+      nameT: '',
       dorm: '',
       email: '',
       password: '',
@@ -249,6 +254,7 @@ export default {
       try {
         const response = await AuthenticationService.update({
           name: this.name,
+          nameT: this.nameT,
           dorm: this.dorm,
           email: this.email,
           password: this.password,

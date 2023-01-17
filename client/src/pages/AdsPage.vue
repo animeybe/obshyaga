@@ -1,20 +1,22 @@
 <template>
   <div id="AdsPage" :class="userTheme">
-    <div class="title">Все посты</div>
+    <div class="title">Все кличи</div>
 
-  <div class="posts wrapper">
-    <div v-for="post in posts" :key="post.id" class="posts_card">
-      <div class="posts-left">
-        <img :src="require(`../assets/POSTS/POST_${(post.id % 20)+1}.jpg`)" alt="">
-      </div>
-      <div class="posts-right">
-        <h1 class="posts_title">{{ post.name }}</h1>
-        <h1 class="posts_quest">{{ post.text }}</h1>
-        <h1 class="posts_author">{{ authors }}</h1>
+    <div v-if="!this.$cookie.getCookie('user').dorm" class="empty">Для начал укажите номер общежития в профиле!</div>
+
+    <div class="posts wrapper">
+      <div v-for="post in posts" :key="post.id" class="posts_card">
+        <div class="posts-left">
+          <img :src="require(`../assets/POSTS/POST_${(post.id % 20)+1}.jpg`)" alt="">
+        </div>
+        <div class="posts-right">
+          <h1 class="posts_quest">Создатель клича:<br>{{ post.author_t }}</h1>
+          <h1 class="posts_quest">{{ post.text }}</h1>
+          <a :href="'tg://resolve?domain=' + post.author_t">Написать в телеграм</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </template>
 
@@ -26,22 +28,11 @@ export default {
   data() {
     return{
       posts: null,
-      authors: [],
       dorm: this.$cookie.getCookie('user').dorm
-    }
-  },
-  methods: {
-    getAuthorName: async function(author_id) {
-      const response = await PostsService.getAuthorName({
-        id : author_id
-      })
-      return response
     }
   },
   async mounted() {
     this.posts = (await PostsService.getAllPosts({dorm:this.dorm})).data
-
-    console.log(this.getAuthorName(1).data)
   }
 }
 </script>
@@ -85,12 +76,12 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
   &_card{
     text-align: center;
     display: flex;
-    border: 1px solid #000;
     width: 48.5%;
     height: 200px;
     margin-bottom: 20px;
     background-color: #5976d0;
     color: #FFF;
+    border-radius: 1vw;
   }
 
   &-left{
@@ -99,6 +90,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     img {
       width: 100%;
       height: 100%;
+      border-radius: 0.9vw 0 0 0.9vw;
     }
   }
   &-right{
@@ -107,6 +99,14 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: #27228f;
+      }
+    }
   }
 }
 

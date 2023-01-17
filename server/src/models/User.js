@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
         room: DataTypes.STRING,
         hometown: DataTypes.STRING,
         bithdate: DataTypes.DATEONLY,
-        photo: DataTypes.BLOB
+        photo: DataTypes.BLOB,
+        telegram: DataTypes.STRING
     }, {
         hooks: {
             beforeCreate: hashPassword,

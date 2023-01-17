@@ -2,12 +2,15 @@ import Api from './Api'
 
 export default {
   getAllPosts (dorm) {
-    return Api().post('getposts', dorm)
+    return Api().post('getAllPosts', dorm)
   },
-  getAuthorName (id) {
-    return Api().post('getauthorname', id)
+  getPosts (options) {
+    return Api().post('getPosts', options)
   },
   createPost (post) {
     return Api().post('createposts', post)
+  },
+  deletePost (id) {
+    return Api().post('deletePost', id)
   }
 }

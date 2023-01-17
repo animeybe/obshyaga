@@ -20,7 +20,7 @@ module.exports = {
             })
         } catch (err) {
             res.status(400).send({
-                error: 'This email account is already in use.'
+                error: 'Эта электронная почта уже занята'
             })
         }
     },
@@ -59,7 +59,7 @@ module.exports = {
     },
     async update (req, res) {
         try {
-            const {name, dorm, email, password, hometown, bithdate, room, id} = req.body
+            const {name, nameT, dorm, email, password, hometown, bithdate, room, id} = req.body
 
             const currUser = await User.findOne(
                 {
@@ -70,6 +70,7 @@ module.exports = {
             )
             
             if (name) currUser.name = name
+            if (nameT) currUser.telegram = nameT
             if (dorm) currUser.dorm = dorm
             if (email) currUser.email = email
             if (password) currUser.password = password
