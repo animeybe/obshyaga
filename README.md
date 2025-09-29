@@ -1,3 +1,5 @@
+! Проект не закончен / И ужасен
+
 # webpack-simple
 
 ## Project setup
